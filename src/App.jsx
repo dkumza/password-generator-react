@@ -8,26 +8,33 @@ import "./App.css";
 function App() {
    const [length, setLength] = useState(8);
    const [numbersSelected, setNumbersSelected] = useState(false);
-   const [symbolsSelected, setSymbolsSeleted] = useState(false);
+   const [symbolsSelected, setSymbolsSelected] = useState(false);
 
    const handleLengthChange = (e) => {
       setLength(e.target.value);
    };
 
    const handleNumberBox = (e) => {
-      // console.log(e.target.checked);
       setNumbersSelected(e.target.checked);
+   };
+
+   const handleSymbolBox = (e) => {
+      setSymbolsSelected(e.target.checked);
    };
 
    return (
       <div className="max-w-full">
-         <Output length={length} numbersSelected={numbersSelected} />
-         <Options
+         <Output
             length={length}
             numbersSelected={numbersSelected}
             symbolsSelected={symbolsSelected}
+         />
+         <Options
+            length={length}
+            numbersSelected={numbersSelected}
             handleLengthChange={handleLengthChange}
             handleNumberBox={handleNumberBox}
+            handleSymbolBox={handleSymbolBox}
          />
       </div>
    );
