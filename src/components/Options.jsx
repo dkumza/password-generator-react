@@ -10,14 +10,14 @@ export default function Options({
    return (
       <div className="">
          <form
-            className="flex border mt-4 gap-4  p-2 items-center justify-center"
+            className="flex mt-4 gap-4 p-2 items-center justify-center"
             onSubmit={(e) => preventEnter(e)}
          >
             <label htmlFor="number">
                Choose Length<span className="font-light text-sm">*</span>
             </label>
             <input
-               className="border py-1 px-3 w-20 outline-none"
+               className="border border-sky-500 rounded-xl shadow px-3 w-20"
                type="number"
                min="8"
                max="100"
@@ -33,7 +33,7 @@ export default function Options({
                      handleNumberBox(e);
                   }}
                />
-               <label htmlFor="numbers">Numbers</label>
+               <label htmlFor="numbers">123</label>
             </div>
             <div className="f-2 flex gap-1">
                <input
@@ -44,12 +44,9 @@ export default function Options({
                      handleSymbolBox(e);
                   }}
                />
-               <label htmlFor="symbols">Symbols</label>
+               <label htmlFor="symbols">#$&</label>
             </div>
          </form>
-         <p className="text-left font-light pl-1 text-xs">
-            *between 8 and 100 characters
-         </p>
       </div>
    );
 }

@@ -6,7 +6,7 @@ import Options from "./components/Options";
 import "./App.css";
 
 function App() {
-   const [length, setLength] = useState(8);
+   const [length, setLength] = useState(20);
    const [numbersSelected, setNumbersSelected] = useState(false);
    const [symbolsSelected, setSymbolsSelected] = useState(false);
 
@@ -23,7 +23,7 @@ function App() {
    };
 
    return (
-      <div className="max-w-full">
+      <div className="max-w-full flex flex-col items-center">
          <Output
             length={length}
             numbersSelected={numbersSelected}
