@@ -6,12 +6,16 @@ import Options from "./components/Options";
 import "./App.css";
 
 function App() {
-   const [count, setCount] = useState(0);
+   const [length, setLength] = useState(8);
+
+   const handleLengthChange = (e) => {
+      setLength(e.target.value);
+   };
 
    return (
       <div className="max-w-full">
-         <Output />
-         <Options />
+         <Output length={length} handleLengthChange={handleLengthChange} />
+         <Options length={length} handleLengthChange={handleLengthChange} />
       </div>
    );
 }

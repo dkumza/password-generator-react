@@ -1,4 +1,5 @@
-export default function Options() {
+export default function Options({ length, handleLengthChange }) {
+   //    console.log(props);
    return (
       <div className="">
          <form className="flex border mt-4 gap-4  p-2 items-center justify-center">
@@ -10,6 +11,8 @@ export default function Options() {
                type="number"
                min="8"
                max="100"
+               value={length}
+               onChange={(e) => handleLengthChange(e)}
             />
             <div className="f-1 flex gap-1">
                <input type="checkbox" name="numbers" id="check-number" />
