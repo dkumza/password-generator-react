@@ -1,5 +1,10 @@
-export default function Options({ length, handleLengthChange }) {
-   //    console.log(props);
+/* eslint-disable react/prop-types */
+export default function Options({
+   length,
+   handleLengthChange,
+   handleNumberBox,
+   symbolsSelected,
+}) {
    return (
       <div className="">
          <form className="flex border mt-4 gap-4  p-2 items-center justify-center">
@@ -15,7 +20,14 @@ export default function Options({ length, handleLengthChange }) {
                onChange={(e) => handleLengthChange(e)}
             />
             <div className="f-1 flex gap-1">
-               <input type="checkbox" name="numbers" id="check-number" />
+               <input
+                  type="checkbox"
+                  name="numbers"
+                  id="check-number"
+                  onClick={(e) => {
+                     handleNumberBox(e);
+                  }}
+               />
                <label htmlFor="numbers">Numbers</label>
             </div>
             <div className="f-2 flex gap-1">
