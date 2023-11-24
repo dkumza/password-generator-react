@@ -1,7 +1,7 @@
 import { abc, numbers, symbols } from "../data";
 
 export default function Output() {
-   const length = 100;
+   const length = 10;
 
    // RANDOM generator
    const randomAbc = () => abc[Math.floor(Math.random() * abc.length)];
@@ -25,7 +25,7 @@ export default function Output() {
    makeRandomPassw(length);
 
    return (
-      <div className="border mt-1 text-center text-xl py-2 px-4 ">
+      <div className="border mt-1 text-center text-xl py-2 px-4 max-w-full break-all">
          {newPassw}
       </div>
    );
