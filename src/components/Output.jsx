@@ -45,7 +45,7 @@ export default function Output({
       if (length < 8 || length > 100) return;
       const newPassword = makeRandomPassw(length);
       setNewPassw(newPassword);
-      // make from object of password to string
+      // make new password as string
       handleAllPasswords(newPassword.map((item) => item.char).join(""));
    }, [length, numbersSelected, symbolsSelected, clickCount]);
 

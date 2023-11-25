@@ -24,12 +24,12 @@ function App() {
       setSymbolsSelected(e.target.checked);
    };
 
-   const handleAllPasswords = (length) => {
-      setAllPasswords(length);
+   const handleAllPasswords = (newPassword) => {
+      setAllPasswords(newPassword);
    };
 
    return (
-      <div className="max-w-full flex flex-col items-center border">
+      <div className="max-w-full flex flex-col items-center">
          <Output
             length={length}
             numbersSelected={numbersSelected}

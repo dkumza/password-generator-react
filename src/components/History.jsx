@@ -11,18 +11,19 @@ export const History = ({ allPasswords }) => {
    }, [allPasswords]);
 
    return (
-      <div className="border w-3/4 mt-4">
-         <h1>Last 10 generated passwords</h1>
-         <p>
+      <div className="w-3/4 mt-4">
+         <h1 className="text-lg font-semibold">Last 10 generated passwords:</h1>
+         <p className="flex flex-col text-center w-full">
             {savedPassw.slice(-10).map((item, index) => (
-               <li key={index}>{item}</li>
+               <li
+                  className="w-full list-none truncate text-sm
+               "
+                  key={index}
+               >
+                  {item}
+               </li>
             ))}
          </p>
-         {/* {allPasswords.map((item, index) => (
-            <span key={index} className="">
-               {item.char}
-            </span>
-         ))} */}
       </div>
    );
 };
