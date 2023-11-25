@@ -10,6 +10,7 @@ export default function Output({
    handleAllPasswords,
 }) {
    const [newPassw, setNewPassw] = useState([]);
+   const [clickCount, setClickCount] = useState(0);
 
    const randomAbc = () => ({
       char: abc[Math.floor(Math.random() * abc.length)],
@@ -44,8 +45,9 @@ export default function Output({
       if (length < 8 || length > 100) return;
       const newPassword = makeRandomPassw(length);
       setNewPassw(newPassword);
-      handleAllPasswords(newPassword);
-   }, [length, numbersSelected, symbolsSelected]);
+      // make from object of password to string
+      handleAllPasswords(newPassword.map((item) => item.char).join(""));
+   }, [length, numbersSelected, symbolsSelected, clickCount]);
 
    return (
       <div className="flex justify-between border rounded-3xl border-sky-500 mt-1 text-center text-2xl tracking-wider  font-semibold py-2 px-4 max-w-full  shadow bg-white w-3/4">
@@ -58,7 +60,10 @@ export default function Output({
          </div>
          <button
             className=" mr-2"
-            onClick={() => setNewPassw(makeRandomPassw(length))}
+            onClick={() => {
+               setNewPassw(makeRandomPassw(length));
+               setClickCount((prevCount) => prevCount + 1);
+            }}
          >
             <i className="bi bi-arrow-clockwise"></i>
          </button>
