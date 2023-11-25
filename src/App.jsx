@@ -4,11 +4,13 @@ import Output from "./components/Output";
 import Options from "./components/Options";
 
 import "./App.css";
+import { History } from "./components/History";
 
 function App() {
    const [length, setLength] = useState(20);
    const [numbersSelected, setNumbersSelected] = useState(false);
    const [symbolsSelected, setSymbolsSelected] = useState(false);
+   const [allPasswords, setAllPasswords] = useState([]);
 
    const handleLengthChange = (e) => {
       setLength(e.target.value);
@@ -22,12 +24,18 @@ function App() {
       setSymbolsSelected(e.target.checked);
    };
 
+   const handleAllPasswords = (length) => {
+      setAllPasswords(length);
+   };
+
    return (
-      <div className="max-w-full flex flex-col items-center">
+      <div className="max-w-full flex flex-col items-center border">
          <Output
             length={length}
             numbersSelected={numbersSelected}
             symbolsSelected={symbolsSelected}
+            allPasswords={allPasswords}
+            handleAllPasswords={handleAllPasswords}
          />
          <Options
             length={length}
@@ -36,6 +44,7 @@ function App() {
             handleNumberBox={handleNumberBox}
             handleSymbolBox={handleSymbolBox}
          />
+         <History allPasswords={allPasswords} />
       </div>
    );
 }

@@ -2,7 +2,13 @@
 import { useState, useEffect } from "react";
 import { abc, numbers, symbols } from "../data";
 
-export default function Output({ length, numbersSelected, symbolsSelected }) {
+export default function Output({
+   length,
+   numbersSelected,
+   symbolsSelected,
+   allPasswords,
+   handleAllPasswords,
+}) {
    const [newPassw, setNewPassw] = useState([]);
 
    const randomAbc = () => ({
@@ -36,7 +42,9 @@ export default function Output({ length, numbersSelected, symbolsSelected }) {
 
    useEffect(() => {
       if (length < 8 || length > 100) return;
-      setNewPassw(makeRandomPassw(length));
+      const newPassword = makeRandomPassw(length);
+      setNewPassw(newPassword);
+      handleAllPasswords(newPassword);
    }, [length, numbersSelected, symbolsSelected]);
 
    return (
