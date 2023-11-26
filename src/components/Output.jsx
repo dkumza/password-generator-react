@@ -6,11 +6,15 @@ export default function Output({
    length,
    numbersSelected,
    symbolsSelected,
-   allPasswords,
    handleAllPasswords,
 }) {
    const [newPassw, setNewPassw] = useState([]);
    const [clickCount, setClickCount] = useState(0);
+
+   function rand(max) {
+      // return random, for condition to add 1st char in password as number or symbol, not only abc 1st
+      return Math.floor(Math.random() * max);
+   }
 
    const randomAbc = () => ({
       char: abc[Math.floor(Math.random() * abc.length)],
@@ -30,12 +34,12 @@ export default function Output({
    const makeRandomPassw = (length) => {
       let newPasswArray = [];
       for (let i = 0; i < length; i++) {
-         if (newPasswArray.length < length) {
+         if (newPasswArray.length < length && rand(3)) {
             newPasswArray.push(randomAbc());
          }
-         if (newPasswArray.length < length && numbersSelected)
+         if (newPasswArray.length < length && numbersSelected && rand(3))
             newPasswArray.push(randomNumber());
-         if (newPasswArray.length < length && symbolsSelected)
+         if (newPasswArray.length < length && symbolsSelected && rand(3))
             newPasswArray.push(randomSymbol());
       }
       return newPasswArray;
@@ -51,7 +55,7 @@ export default function Output({
 
    return (
       <div className="flex justify-between border rounded-3xl border-sky-500 mt-1 text-center text-2xl tracking-wider  font-semibold py-2 px-4 max-w-full  shadow bg-white w-3/4">
-         <div className="passw-wrap ml-2 truncate">
+         <div className="passw-wrap ml-2 truncate ">
             {newPassw.map((item, index) => (
                <span key={index} className={item.type}>
                   {item.char}
