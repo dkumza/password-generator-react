@@ -11,7 +11,7 @@ export const History = ({ allPasswords }) => {
    useEffect(() => {
       // if allpasswords are empty return
       if (allPasswords.length === 0) return;
-      // push to back of array new generated password and cut 12 values from start
+      // push to back of array new generated password and cut 10 values from start
       let newPassword = [allPasswords, ...savedPassw].splice(0, 10);
       localStorage.setItem("data", JSON.stringify(newPassword)); // updating localStorage with passwords
       setSavedPassw(newPassword); // creates new password at history DOM using state savedPassw

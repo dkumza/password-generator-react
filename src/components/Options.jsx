@@ -5,6 +5,7 @@ export default function Options({
    handleNumberBox,
    handleSymbolBox,
 }) {
+   // on submit prevent refresh page
    const preventEnter = (e) => e.preventDefault();
 
    return (
@@ -16,6 +17,7 @@ export default function Options({
             <label htmlFor="number">
                Choose Length<span className="font-light text-sm">*</span>
             </label>
+            {/* length option */}
             <input
                className="border border-sky-500 rounded-lg shadow px-3 w-20"
                type="number"
@@ -25,6 +27,7 @@ export default function Options({
                onChange={(e) => handleLengthChange(e)}
             />
             <div className="f-1 flex gap-1">
+               {/* numbers option */}
                <input
                   type="checkbox"
                   name="numbers"
@@ -36,6 +39,7 @@ export default function Options({
                <label htmlFor="numbers">123</label>
             </div>
             <div className="f-2 flex gap-1">
+               {/* symbols options */}
                <input
                   type="checkbox"
                   name="symbols"
