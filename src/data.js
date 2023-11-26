@@ -87,3 +87,9 @@ export const symbols = [
    "~",
    "`",
 ];
+export const strongLevel = [
+   { id: "WEAK", color: "bg-rose-500" },
+   { id: "GOOD", color: "bg-yellow-500" },
+   { id: "STRONG", color: "bg-lime-500" },
+   { id: "VERY STRONG", color: "bg-blue-500" },
+];

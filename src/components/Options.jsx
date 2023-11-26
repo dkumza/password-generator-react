@@ -17,7 +17,7 @@ export default function Options({
                Choose Length<span className="font-light text-sm">*</span>
             </label>
             <input
-               className="border border-sky-500 rounded-xl shadow px-3 w-20"
+               className="border border-sky-500 rounded-lg shadow px-3 w-20"
                type="number"
                min="8"
                max="100"
