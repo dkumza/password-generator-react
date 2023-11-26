@@ -93,7 +93,7 @@ export default function Output({
                   // returns security level to DOM
                   className={[
                      strong.color,
-                     "mr-2 px-3 py-1 rounded-lg text-sm text-white",
+                     "mr-2 px-4 py-2 rounded-lg text-sm text-white",
                   ].join(" ")}
                >
                   {strong.id}

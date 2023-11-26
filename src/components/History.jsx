@@ -5,8 +5,7 @@ export const History = ({ allPasswords }) => {
    // state to save all new passwords
    const [savedPassw, setSavedPassw] = useState(
       // check if localStorage exists, if so show last 10 passwords (on refresh there will be last value new password)
-      // else returns empty string
-      JSON.parse(localStorage.getItem("data")) || []
+      JSON.parse(localStorage.getItem("data")) || [] // else returns empty string
    );
 
    useEffect(() => {
