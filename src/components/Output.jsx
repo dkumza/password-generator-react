@@ -8,8 +8,11 @@ export default function Output({
    symbolsSelected,
    handleAllPasswords,
 }) {
+   // state of generated passwords
    const [newPassw, setNewPassw] = useState([]);
+   // state of refresh button
    const [clickCount, setClickCount] = useState(0);
+   // state of password security level
    const [strong, setStrong] = useState([]);
 
    function rand(max) {
@@ -33,6 +36,7 @@ export default function Output({
    });
 
    const makeRandomPassw = (length) => {
+      // creates random password depending on selected options
       let newPasswArray = [];
       for (let i = 0; i < length; i++) {
          if (newPasswArray.length < length && rand(5)) {
@@ -47,10 +51,11 @@ export default function Output({
    };
 
    useEffect(() => {
-      if (length < 8 || length > 100) return;
+      if (length < 8 || length > 100) return; // checks if options to generate password matches rules
       let strongVal = "";
-      const newPassword = makeRandomPassw(length);
+      const newPassword = makeRandomPassw(length); // if rules matches, generates new password
       setNewPassw(newPassword);
+      // checks security level of password depending on selected options
       if (length >= 8) strongVal = strongLevel[0];
       if (length >= 12) strongVal = strongLevel[1];
       if (length >= 14) strongVal = strongLevel[2];
@@ -68,13 +73,14 @@ export default function Output({
 
       setStrong(strongVal);
 
-      // make new password as string
+      // make new password as string to pass to history DOM
       handleAllPasswords(newPassword.map((item) => item.char).join(""));
    }, [length, numbersSelected, symbolsSelected, clickCount]);
 
    return (
       <div className="flex leading-normal justify-between items-center border rounded-3xl border-sky-500 mt-1 text-center text-2xl tracking-wider  font-semibold py-2 px-4 max-w-full  shadow bg-white w-3/4 truncate">
          <div className="passw-wrap ml-2 truncate">
+            {/* returns new password to DOM */}
             {newPassw.map((item, index) => (
                <span key={index} className={item.type}>
                   {item.char}
@@ -84,6 +90,7 @@ export default function Output({
          <div className="flex items-center">
             <div className="flex">
                <span
+                  // returns security level to DOM
                   className={[
                      strong.color,
                      "mr-2 px-3 py-1 rounded-lg text-sm text-white",
