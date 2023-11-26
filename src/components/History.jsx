@@ -2,19 +2,19 @@
 import { useState, useEffect } from "react";
 
 export const History = ({ allPasswords }) => {
+   // state to save all new passwords
    const [savedPassw, setSavedPassw] = useState([]);
 
    useEffect(() => {
-      if (allPasswords.length > 0) {
-         setSavedPassw((prevPasswords) => [...prevPasswords, allPasswords]);
-      }
+      // push to back of array new generated password
+      setSavedPassw((savedPassw) => [allPasswords, ...savedPassw]);
    }, [allPasswords]);
 
    return (
       <div className="w-3/4 mt-4">
          <h1 className="text-lg font-semibold">Last 10 generated passwords:</h1>
          <p className="flex flex-col text-center w-full">
-            {savedPassw.slice(-10).map((item, index) => (
+            {savedPassw.slice(0, 10).map((item, index) => (
                <li
                   className="w-full list-none truncate text-sm
                "
