@@ -52,7 +52,7 @@ function App() {
             handleNumberBox={handleNumberBox}
             handleSymbolBox={handleSymbolBox}
          />
-         <p className="font-light pl-1 text-xs text-center text-slate-400 w-full ">
+         <p className="font-light text-xs text-center text-slate-400 w-full ">
             *between 8 and 100 characters
          </p>
          <History allPasswords={allPasswords} />

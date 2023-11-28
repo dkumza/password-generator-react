@@ -18,7 +18,7 @@ export const History = ({ allPasswords }) => {
    }, [allPasswords]);
 
    return (
-      <div className="w-3/4 px-8 mt-4 ">
+      <div className=" md:w-3/4 md:px-8 mt-4 ">
          <h1 className="text-lg font-semibold mb-2">
             Last 10 generated passwords:
          </h1>
